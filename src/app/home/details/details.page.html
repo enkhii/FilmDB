@@ -1,0 +1,66 @@
+<ion-header [translucent]="true" class="ion-color-primary">
+  <ion-toolbar color="primary">
+    <ion-row>
+      <ion-col size="2" offset-md="5" class="ion-hide-sm-down">
+        <ion-item lines="none" color="primary" [routerLink]="['']">
+          <ion-title class="ion-text-center" ><ion-icon name="film-outline" ></ion-icon>FilmApp</ion-title>
+        </ion-item>
+      </ion-col>
+      <ion-col size-md="3" offset-md="1">
+        <ion-item color="primary">
+          <ion-searchbar #filmsearch placeholder="Título" color="tertiary" (keyup.enter)="titleSearch(filmsearch.value)"></ion-searchbar>
+          <ion-button color="secondary" [routerLink]="['/home/search/', filmsearch.value]">Search</ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="tertiary">
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size-md="3" size="8" offset="2" offset-md="2"><ion-img src="{{ filmDetail.Poster }}" class="poster" > </ion-img></ion-col>
+      <ion-col size-md="5" size="12">
+        <ion-card color="dark" class="info">
+          <ion-row>
+            <h3> Título: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Title }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Año: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Year }} </h3> </ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Duración: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Runtime }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Géneros: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Genre }} </h3> </ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Director: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Director }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Escritores: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Writer }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Actores: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Actors }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Argumento: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Plot }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Pais: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Country }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Premios: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Awards }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> Metascore: </h3> <ion-text color="secondary"><h3>{{ filmDetail.Metascore }} </h3></ion-text>
+          </ion-row>
+          <ion-row>
+            <h3> IMDb rating: </h3> <ion-text color="secondary"><h3>{{ filmDetail.imdbRating }} </h3></ion-text>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

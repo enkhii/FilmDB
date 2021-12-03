@@ -1,0 +1,34 @@
+<ion-header [translucent]="true" class="ion-color-primary">
+  <ion-toolbar color="primary">
+    <ion-row>
+      <ion-col size="2" offset-md="5" class="ion-hide-sm-down">
+        <ion-item lines="none" color="primary" [routerLink]="['']">
+          <ion-title class="ion-text-center" ><ion-icon name="film-outline" ></ion-icon>FilmApp</ion-title>
+        </ion-item>
+      </ion-col>
+      <ion-col size-md="3" offset-md="1">
+        <ion-item color="primary">
+          <ion-searchbar #filmsearch placeholder="Título" color="tertiary" (keyup.enter)="titleSearch(filmsearch.value)"></ion-searchbar>
+          <ion-button color="secondary" [routerLink]="['/home/search/', filmsearch.value]">Search</ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="tertiary">
+  <ion-grid *ngIf="result.length !== 0">
+    <ion-row *ngFor="let movies of result.Search" [routerLink]="['/home/detail/', movies.imdbID]">
+      <ion-col offset-md="3" size-md="6">
+        <ion-card color="dark" class="ion-text-center film">
+          <h1>{{ movies.Title }}</h1>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="container" *ngIf="result.Response === 'False' ">
+    <strong>¡Vaya! Parece que tu búsqueda no ha dado resultados</strong>
+    <p>Prueba buscar algo diferente</p>
+  </div>
+</ion-content>
