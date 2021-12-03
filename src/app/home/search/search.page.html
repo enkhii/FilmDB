@@ -21,7 +21,7 @@
     <ion-row *ngFor="let movies of result.Search" [routerLink]="['/home/detail/', movies.imdbID]">
       <ion-col offset-md="3" size-md="6">
         <ion-card color="dark" class="ion-text-center film">
-          <h1>{{ movies.Title }}</h1>
+          <h1><ion-text color="secondary">{{ movies.Title }}</ion-text> ({{ movies.Year }})</h1>
         </ion-card>
       </ion-col>
     </ion-row>
